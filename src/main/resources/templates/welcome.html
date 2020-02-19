@@ -4,12 +4,40 @@
 
   <body>
 
-    <h2 th:text="#{welcome}">Welcome</h2>
-    <div class="row">
-        <div class="col-md-12">
-          Welcome at Car Dealer Application!
-        </div>
-    </div>
+    <h1>Welcome at Car Dealer Application!</h1>
+    <br />
+    <br />
+    <br />
+    <h2>Available Users</h2>
+    <table class="table table-striped">
+  
+      <tr th:each="user : ${users}">
+        <td valign="top">
+          <table class="table-condensed">
+            <thead>
+              <tr>
+                <th>Name:</th>
+                <th>Role:</th>
+                <th th:if="${#strings.contains(user?.role, 'BUYER')}">Current Money</th>
+                <th th:if="${#strings.contains(user?.role, 'SELLER')}">Number of Advertisements:</th>
+              </tr>
+            </thead>
+            <tr>
+              <td th:text="${user?.name}"></td>
+              <td th:text="${user?.role}"></td>
+              <td th:if="${#strings.contains(user?.role, 'BUYER')}" th:text="${user?.currentMoney}"></td>
+              <td th:if="${#strings.contains(user?.role, 'SELLER')}" th:text="${user?.currentMoney}"></td>
+              
+              <!-- Continue to the proper subside -->
+  			  <td th:if="${#strings.contains(user?.role, 'ADMIN')}"><a th:href="@{admin}">Go to Admin Panel</a></td>
+  			  <td th:if="${#strings.contains(user?.role, 'SELLER')}"><a th:href="@{{userId}/edit}">Edit Advertisements</a></td>
+  			  <td th:if="${#strings.contains(user?.role, 'BUYER')}"><a th:href="@{{userId}/showall}">Check Advertisements</a></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+  
+    </table>
 
   </body>
 

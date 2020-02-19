@@ -1,5 +1,5 @@
 package com.programozzteis.cardealer.cardealer.users;
 
-enum UserType {
+enum UserRole {
 	ADMIN, SELLER, BUYER
 }

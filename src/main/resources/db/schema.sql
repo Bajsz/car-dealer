@@ -3,9 +3,10 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE IF NOT EXISTS users (
   id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(155),
   role VARCHAR(10),
-  currentMoney INT(15),
-  INDEX(id)
+  current_money INT(15),
+  INDEX(name)
 ) engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS advertisements (

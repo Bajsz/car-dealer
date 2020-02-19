@@ -12,19 +12,22 @@ import com.programozzteis.cardealer.cardealer.model.BaseEntity;
 @Table(name = "users")
 public class User extends BaseEntity {
 
+	@Column(name = "name")
+	private String name;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "role")
-	private UserType type;
+	private UserRole role;
 	
-	@Column(name = "currentMoney")
+	@Column(name = "current_money")
 	private int currentMoney;
 
-	public UserType getType() {
-		return type;
+	public UserRole getRole() {
+		return role;
 	}
 
-	public void setType(UserType type) {
-		this.type = type;
+	public void setRole(UserRole role) {
+		this.role = role;
 	}
 
 	public int getCurrentMoney() {
@@ -33,6 +36,14 @@ public class User extends BaseEntity {
 
 	public void setCurrentMoney(int currentMoney) {
 		this.currentMoney = currentMoney;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

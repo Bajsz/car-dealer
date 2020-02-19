@@ -1,9 +1,9 @@
 /** TABLE: users */
-/** VALUES: id, role, currentMoney */
-INSERT INTO users VALUES (1, 'ADMIN', null);
-INSERT INTO users VALUES (2, 'SELLER', null);
-INSERT INTO users VALUES (3, 'BUYER', 10000);
-INSERT INTO users VALUES (4, 'SELLER', null);
+/** VALUES: id, name, role, currentMoney */
+INSERT INTO users VALUES (1, 'John', 'ADMIN', 0);
+INSERT INTO users VALUES (2, 'Doe', 'SELLER', 0);
+INSERT INTO users VALUES (3, 'Stue', 'BUYER', 10000);
+INSERT INTO users VALUES (4, 'Ashlyn', 'SELLER', 0);
 
 
 /** TABLE: advertisements */
