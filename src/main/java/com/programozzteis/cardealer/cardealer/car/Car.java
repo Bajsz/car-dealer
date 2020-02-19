@@ -18,7 +18,7 @@ public class Car extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "car_type")
-	private CarTypes carType;
+	private CarType carType;
 	
 	@DateTimeFormat(pattern = "yyyy-MM")
 	@Column(name = "car_prod_date")
@@ -36,11 +36,11 @@ public class Car extends BaseEntity {
 	@Column(name = "car_user_id")
 	private int user;
 
-	public CarTypes getCarType() {
+	public CarType getCarType() {
 		return carType;
 	}
 
-	public void setCarType(CarTypes carType) {
+	public void setCarType(CarType carType) {
 		this.carType = carType;
 	}
 
@@ -82,6 +82,17 @@ public class Car extends BaseEntity {
 
 	public void setUser(int user) {
 		this.user = user;
+	}
+	
+	public int estimatePrice()
+	{
+		int estimatedPrice = 0;
+		
+		/** TEST LOGIC */
+		estimatedPrice = 100;
+		/** TO BE REPLACED */
+		
+		return estimatedPrice;
 	}
 	
 }
