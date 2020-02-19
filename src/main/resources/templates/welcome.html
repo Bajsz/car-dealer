@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-Welcome on Car Dealer Webpage!
-</body>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+  <body>
+
+    <h2 th:text="#{welcome}">Welcome</h2>
+    <div class="row">
+        <div class="col-md-12">
+          Welcome at Car Dealer Application!
+        </div>
+    </div>
+
+  </body>
+
 </html>
