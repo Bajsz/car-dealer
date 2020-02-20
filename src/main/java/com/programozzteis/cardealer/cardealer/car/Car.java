@@ -6,11 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.programozzteis.cardealer.cardealer.model.BaseEntity;
+import com.programozzteis.cardealer.cardealer.users.Salesman;
 
 @Entity
 @Table(name = "advertisements")
@@ -33,8 +36,9 @@ public class Car extends BaseEntity {
 	@Column(name = "car_price")
 	private int price;
 	
-	@Column(name = "car_user_id")
-	private int user;
+	@ManyToOne
+	@JoinColumn(name = "car_salesman_id")
+	private Salesman salesman;
 
 	public CarType getCarType() {
 		return carType;
@@ -75,13 +79,13 @@ public class Car extends BaseEntity {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
-	public int getUser() {
-		return user;
+	
+	public Salesman getSalesman() {
+		return salesman;
 	}
 
-	public void setUser(int user) {
-		this.user = user;
+	public void setSalesman(Salesman salesman) {
+		this.salesman = salesman;
 	}
 	
 	public int estimatePrice()
@@ -94,5 +98,6 @@ public class Car extends BaseEntity {
 		
 		return estimatedPrice;
 	}
+
 	
 }

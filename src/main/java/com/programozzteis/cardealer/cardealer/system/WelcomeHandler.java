@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.programozzteis.cardealer.cardealer.car.Car;
 import com.programozzteis.cardealer.cardealer.users.Admin;
 import com.programozzteis.cardealer.cardealer.users.AdminRepository;
 import com.programozzteis.cardealer.cardealer.users.Customer;
@@ -38,13 +39,13 @@ public class WelcomeHandler {
 		Iterable<Admin> admins = this.adminRepo.findAll();
 		model.put("admins", admins);
 		
-		/** CUSTOMER */
-		Iterable<Customer> customers = this.customerRepo.findAll();
-		model.put("customers", customers);
-		
 		/** SALESMANS */
 		Iterable<Salesman> salesmans = this.salesmanRepo.findAll();
 		model.put("salesmans", salesmans);
+		
+		/** CUSTOMER */
+		Iterable<Customer> customers = this.customerRepo.findAll();
+		model.put("customers", customers);
 		
 		
 		return "welcome";

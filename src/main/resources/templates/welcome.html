@@ -46,6 +46,7 @@
             </thead>
             <tr>
               <td th:text="${salesman.name}"></td>
+              <td th:text="${salesman.cars.size()}"></td>
               
               <!-- Continue to the proper subside -->
   			  <td><a th:href="@{salesman/{id}(id=${salesman.id})}">Edit Advertisements</a></td>
