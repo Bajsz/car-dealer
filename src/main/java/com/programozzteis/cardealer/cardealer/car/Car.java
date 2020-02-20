@@ -21,9 +21,9 @@ public class Car extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "car_type")
-	private CarType carType;
+	private CarType type;
 	
-	@DateTimeFormat(pattern = "yyyy-MM")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "car_prod_date")
 	private LocalDate prodYear;
 	
@@ -40,12 +40,12 @@ public class Car extends BaseEntity {
 	@JoinColumn(name = "car_salesman_id")
 	private Salesman salesman;
 
-	public CarType getCarType() {
-		return carType;
+	public CarType getType() {
+		return type;
 	}
 
-	public void setCarType(CarType carType) {
-		this.carType = carType;
+	public void setType(CarType type) {
+		this.type = type;
 	}
 
 	public LocalDate getProdYear() {

@@ -22,7 +22,6 @@ public class WelcomeHandler {
 	private final SalesmanRepository salesmanRepo;
 
 	public WelcomeHandler(AdminRepository adminRepo, CustomerRepository customerRepo, SalesmanRepository salesmanRepo) {
-		super();
 		this.adminRepo = adminRepo;
 		this.customerRepo = customerRepo;
 		this.salesmanRepo = salesmanRepo;
