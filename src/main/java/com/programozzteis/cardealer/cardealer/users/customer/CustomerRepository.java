@@ -15,6 +15,14 @@ public interface CustomerRepository extends Repository<Customer, Integer> {
 	void save(Customer entity);
 	
 	/**
+	 * Deletes the entity with the given id.
+	 *
+	 * @param id must not be {@literal null}.
+	 * @throws IllegalArgumentException in case the given {@literal id} is {@literal null}
+	 */
+	void deleteById(Integer id);
+	
+	/**
 	 * Returns whether an entity with the given id exists.
 	 *
 	 * @param id must not be {@literal null}.

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+  <body>
+  
+  
+    <h1>Welcome at Admin Panel</h1>
+    <h2>You can delete any User or Advertisement now</h2>
+
+  
+    <br />
+    <br />
+    <br />
+
+    <div class="col-sm-2">
+    	<h3>Salesman List</h3>
+	    <table class="table table-striped">
+           <thead>
+             <tr>
+               <th>Name</th>
+               <th>Nr of Adds</th>
+               <th>Delete Link</th>
+             </tr>
+           </thead>
+           <tr th:each="salesman : ${salesmans}">
+             <td th:text="${salesman.name}"></td>
+             <td th:text="${salesman.cars.size()}"></td>
+
+             <!-- Continue to the proper subside -->
+ 			 <td><a th:href="@{/admin/{id}/deletesman/{smanId}(id=${adminId},smanId=${salesman.id})}">Delete</a></td>
+           </tr>
+         </table>
+    </div>
+    <div class="col-sm-3">
+	   <h3>Customer List</h3>
+	   <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Current Money</th>
+              <th>Delete Link</th>
+            </tr>
+          </thead>
+          <tr th:each="customer : ${customers}">
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.currentMoney}"></td>
+            
+            <!-- Continue to the proper subside -->
+			<td><a th:href="@{/admin/{id}/deletecust/{custId}(id=${adminId},custId=${customer.id})}">Delete</a></td>
+          </tr>
+        </table>
+    </div>
+    <div class="col-sm-7">
+	   <h3>Advertisements</h3>
+	   <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Production Date</th>
+              <th>Power</th>
+              <th>Consumption</th>
+              <th>Price</th>
+              <th>Salesman</th>
+              <th>Delete Link</th>
+            </tr>
+          </thead>
+          <tr th:each="car : ${cars}">
+            <td th:text="${car.type}"></td>
+            <td th:text="${#temporals.format(car.prodYear, 'yyyy-MM-dd')}"></td>
+            <td th:text="${car.power}"></td>
+            <td th:text="${car.consumption + 'l / 100km'}"></td>
+            <td th:text="${car.price + ' $'}"></td>
+            <td th:text="${car.salesman.name}"></td>
+            
+            <!-- Continue to the proper subside -->
+			<td><a th:href="@{/admin/{id}/deletecar/{carId}(id=${adminId},carId=${car.id})}">Delete</a></td>
+          </tr>
+        </table>
+    </div>
+  </body>
+
+</html>

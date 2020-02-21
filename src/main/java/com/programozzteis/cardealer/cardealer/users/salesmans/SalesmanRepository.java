@@ -5,6 +5,14 @@ import org.springframework.data.repository.Repository;
 public interface SalesmanRepository extends Repository<Salesman, Integer> {
 
 	/**
+	 * Deletes the entity with the given id.
+	 *
+	 * @param id must not be {@literal null}.
+	 * @throws IllegalArgumentException in case the given {@literal id} is {@literal null}
+	 */
+	void deleteById(Integer id);
+	
+	/**
 	 * Retrieves an entity by its id.
 	 *
 	 * @param id must not be {@literal null}.

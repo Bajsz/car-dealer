@@ -18,6 +18,14 @@ public interface CarRepository extends Repository<Car, Integer> {
 	public void save(Car car);
 	
 	/**
+	 * Deletes the entity with the given id.
+	 *
+	 * @param id must not be {@literal null}.
+	 * @throws IllegalArgumentException in case the given {@literal id} is {@literal null}
+	 */
+	void deleteById(Integer id);
+	
+	/**
 	 * Deletes a given entity.
 	 *
 	 * @param entity must not be {@literal null}.
