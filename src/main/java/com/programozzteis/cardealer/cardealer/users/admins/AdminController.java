@@ -123,14 +123,6 @@ public class AdminController {
 				.filter(car -> (car.getSalesman().getId() == salesmanId))
 				.forEach(this.carRepo::delete);
 			
-//			for(Car car : cars)
-//			{
-//				if(car.getSalesman().getId() == salesmanId)
-//				{
-//					this.carRepo.delete(car);
-//				}
-//			}
-			
 			/** Delete Salesman */
 			this.salesmanRepo.deleteById(salesmanId);
 			
