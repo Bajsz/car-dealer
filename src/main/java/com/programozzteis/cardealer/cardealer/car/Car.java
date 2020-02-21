@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.programozzteis.cardealer.cardealer.model.BaseEntity;
-import com.programozzteis.cardealer.cardealer.users.salesmans.Salesman;
+import com.programozzteis.cardealer.cardealer.users.salesman.Salesman;
 
 @Entity
 @Table(name = "advertisements")

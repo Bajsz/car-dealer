@@ -1,4 +1,4 @@
-package com.programozzteis.cardealer.cardealer.users.admins;
+package com.programozzteis.cardealer.cardealer.users.admin;
 
 import org.springframework.data.repository.Repository;
 

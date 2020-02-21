@@ -1,4 +1,4 @@
-package com.programozzteis.cardealer.cardealer.users.admins;
+package com.programozzteis.cardealer.cardealer.users.admin;
 
 import java.util.List;
 import java.util.Map;
@@ -12,8 +12,8 @@ import com.programozzteis.cardealer.cardealer.car.Car;
 import com.programozzteis.cardealer.cardealer.car.CarRepository;
 import com.programozzteis.cardealer.cardealer.users.customer.Customer;
 import com.programozzteis.cardealer.cardealer.users.customer.CustomerRepository;
-import com.programozzteis.cardealer.cardealer.users.salesmans.Salesman;
-import com.programozzteis.cardealer.cardealer.users.salesmans.SalesmanRepository;
+import com.programozzteis.cardealer.cardealer.users.salesman.Salesman;
+import com.programozzteis.cardealer.cardealer.users.salesman.SalesmanRepository;
 
 @Controller
 @RequestMapping("/admin")
