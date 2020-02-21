@@ -114,7 +114,7 @@ public class CustomerController {
 			throw new RuntimeException("Requested Customer is unknown");
 		}
 		
-		return "customers/createOrUpdateCustomerForm";
+		return "customers/updateCustomerForm";
 	}
 	
 	@PostMapping("/customer/{custId}/edit")
