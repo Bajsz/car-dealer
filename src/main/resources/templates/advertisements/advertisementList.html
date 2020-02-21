@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+
+<body>
+
+  <h2>List of Available Cars</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Production Date</th>
+        <th>Power</th>
+        <th>Consumption</th>
+        <th>Price</th>
+        <th>Salesman</th>
+      </tr>
+    </thead>
+    <tr th:each="car : ${cars}">
+      <td th:text="${car.type}"></td>
+      <td th:text="${#temporals.format(car.prodYear, 'yyyy-MM-dd')}"></td>
+      <td th:text="${car.power}"></td>
+      <td th:text="${car.consumption + 'l / 100km'}"></td>
+      <td th:text="${car.price + ' $'}"></td>
+      <td th:text="${car.salesman.name}"></td>
+    </tr>
+  </table>
+</body>
+</html>
