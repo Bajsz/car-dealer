@@ -1,5 +1,6 @@
-package com.programozzteis.cardealer.cardealer.users;
+package com.programozzteis.cardealer.cardealer.users.customer;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -34,7 +35,7 @@ public class CustomerController {
 			model.put("customer", customer);
 			
 			/** Show all Adds */
-			Iterable<Car> cars = this.carRepo.findAll();
+			List<Car> cars = this.carRepo.findAll();
 			model.put("cars", cars);
 		}
 		else
@@ -84,7 +85,7 @@ public class CustomerController {
 			
 			
 			/** Show all remaining Adds */
-			Iterable<Car> cars = this.carRepo.findAll();
+			List<Car> cars = this.carRepo.findAll();
 			model.put("cars", cars);
 		}
 		else

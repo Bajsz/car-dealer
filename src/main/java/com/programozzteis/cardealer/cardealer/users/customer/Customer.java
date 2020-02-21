@@ -1,4 +1,4 @@
-package com.programozzteis.cardealer.cardealer.users;
+package com.programozzteis.cardealer.cardealer.users.customer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

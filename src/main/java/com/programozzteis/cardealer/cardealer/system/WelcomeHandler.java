@@ -6,12 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.programozzteis.cardealer.cardealer.car.Car;
-import com.programozzteis.cardealer.cardealer.users.Admin;
-import com.programozzteis.cardealer.cardealer.users.AdminRepository;
-import com.programozzteis.cardealer.cardealer.users.Customer;
-import com.programozzteis.cardealer.cardealer.users.CustomerRepository;
-import com.programozzteis.cardealer.cardealer.users.Salesman;
-import com.programozzteis.cardealer.cardealer.users.SalesmanRepository;
+import com.programozzteis.cardealer.cardealer.users.admins.Admin;
+import com.programozzteis.cardealer.cardealer.users.admins.AdminRepository;
+import com.programozzteis.cardealer.cardealer.users.customer.Customer;
+import com.programozzteis.cardealer.cardealer.users.customer.CustomerRepository;
+import com.programozzteis.cardealer.cardealer.users.salesmans.Salesman;
+import com.programozzteis.cardealer.cardealer.users.salesmans.SalesmanRepository;
 
 
 @Controller

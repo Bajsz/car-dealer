@@ -1,4 +1,4 @@
-package com.programozzteis.cardealer.cardealer.users;
+package com.programozzteis.cardealer.cardealer.users.salesmans;
 
 import java.util.ArrayList;
 import java.util.Collections;

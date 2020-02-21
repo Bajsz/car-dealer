@@ -1,6 +1,9 @@
 package com.programozzteis.cardealer.cardealer.car;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +16,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.programozzteis.cardealer.cardealer.model.BaseEntity;
-import com.programozzteis.cardealer.cardealer.users.Salesman;
+import com.programozzteis.cardealer.cardealer.users.salesmans.Salesman;
 
 @Entity
 @Table(name = "advertisements")
@@ -87,17 +90,8 @@ public class Car extends BaseEntity {
 	public void setSalesman(Salesman salesman) {
 		this.salesman = salesman;
 	}
-	
-	public int estimatePrice()
-	{
-		int estimatedPrice = 0;
-		
-		/** TEST LOGIC */
-		estimatedPrice = 100;
-		/** TO BE REPLACED */
-		
-		return estimatedPrice;
-	}
 
-	
+	public Collection<CarType> populateCarTypes() {
+		return Arrays.asList(CarType.values());
+	}
 }
