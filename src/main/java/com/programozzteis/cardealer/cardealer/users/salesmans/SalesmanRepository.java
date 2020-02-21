@@ -1,6 +1,11 @@
 package com.programozzteis.cardealer.cardealer.users.salesmans;
 
+import java.util.Collection;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface SalesmanRepository extends Repository<Salesman, Integer> {
 
@@ -29,11 +34,22 @@ public interface SalesmanRepository extends Repository<Salesman, Integer> {
 	 * @throws IllegalArgumentException if {@literal id} is {@literal null}.
 	 */
 	boolean existsById(Integer id);
+	
 	/**
 	 * Returns all instances of the type.
 	 *
 	 * @return all entities
 	 */
 	Iterable<Salesman> findAll();	
+	
+	/**
+	 * Retrieve {@link Salesman}s from the data store by name, returning all salesman
+	 * whose name <i>starts</i> with the given name.
+	 * @param name Value to search for
+	 * @return a Collection of matching {@link Salesman}s (or an empty Collection if none found)
+	 */
+	@Query("SELECT DISTINCT salesman FROM Salesman salesman WHERE salesman.name LIKE :name%")
+	@Transactional(readOnly = true)
+	Collection<Salesman> findByName(@Param("name") String name);
 	
 }
