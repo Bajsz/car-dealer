@@ -1,5 +1,6 @@
 package com.programozzteis.cardealer.cardealer.car;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.Repository;
@@ -38,7 +39,7 @@ public interface CarRepository extends Repository<Car, Integer> {
 	 *
 	 * @return all entities
 	 */
-	Iterable<Car> findAll();
+	List<Car> findAll();
 	
 	/**
 	 * Retrieves an entity by its id.

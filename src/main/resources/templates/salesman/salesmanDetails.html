@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+  <body>
+  
+  
+    <h2>Salesman Information</h2>
+  
+  
+    <table class="table table-striped" th:object="${salesman}">
+      <tr>
+        <th>Name</th>
+        <th>Nr of Ads</th>
+      </tr>
+      <tr>
+        <td th:text="*{name}" /></td>
+        <td th:text="*{cars.size()}" /></td>
+      </tr>
+    </table>
+  	<br />
+    <a th:href="@{/salesman/{id}/new(id=${salesman.id})}" class="btn btn-default">Add new Advertisement</a>
+  
+    <br />
+    <br />
+    <br />
+    <h2>Available Advertisements</h2>
+  
+    <table class="table table-striped">
+  
+      <tr th:each="car : ${cars}">
+        <td valign="top">
+          <dl class="dl-horizontal">
+            <dt>Type</dt>
+            <dd th:text="${car.type}" /></dd>
+            <dt>Production Date</dt>
+            <dd th:text="${#temporals.format(car.prodYear, 'yyyy-MM-dd')}" /></dd>
+            <dt>Power</dt>
+            <dd th:text="${car.power}" /></dd>
+            <dt>Consumption</dt>
+            <dd th:text="${car.consumption + 'l / 100km'}" /></dd>
+            <dt>Price</dt>
+            <dd th:text="${car.price + ' $'}" /></dd>
+            <dt>Salesman</dt>
+            <dd th:text="${car.salesman.name}" /></dd>
+          </dl>
+        </td>
+      </tr>
+  
+    </table>
+  
+  </body>
+
+</html>

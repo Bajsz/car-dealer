@@ -1,0 +1,28 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<body>
+
+  <h2>Provide the Details of the new Advertisement</h2>
+  <form th:object="${car}" class="form-horizontal" id="add-owner-form" method="post">
+    <div class="form-group has-feedback">
+      <input
+         th:replace="~{fragments/selectField :: select ('Car Type', 'type', ${car_types})}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Year of Production', 'prodYear', 'date')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Power', 'power', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Consumption [l / 100km]', 'consumption', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Price [$]', 'price', 'text')}" />
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          class="btn btn-default" type="submit">Add new Car</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
