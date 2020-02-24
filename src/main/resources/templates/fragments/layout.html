@@ -30,26 +30,26 @@
                       </a>
                   </li>
   
-                  <li th:replace="::menuItem ('/','home','home page','home','Home')">
-                      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                  <li th:replace="::menuItem ('/','home','home page','','Home')">
                       <span>Home</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/salesman/find','owners','find owners','search','Find Salesman')">
-                      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                  <li th:replace="::menuItem ('/salesman/find','owners','find owners','','Find Salesman')">
                       <span>Find owners</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/advertisementList.html','vets','veterinarians','th-list','Advertisements')">
-                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                  <li th:replace="::menuItem ('/advertisementList.html','vets','veterinarians','','Advertisements')">
                       <span>Veterinarians</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">
-                      <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                  <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','','Error')">
                       <span>Error</span>
                   </li>
   
+ 				  <li th:replace="::menuItem ('/reset','reset','Reset the DB Content to default, after deletes or updates','','Reset DB')">
+                      <span>Reset DB</span>
+                  </li>
+                  
               </ul>
           </div>
       </div>
