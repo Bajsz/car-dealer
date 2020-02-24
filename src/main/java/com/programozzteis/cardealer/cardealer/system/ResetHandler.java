@@ -23,6 +23,8 @@ public class ResetHandler {
 	private String dbPWD;
 	@Value("${spring.datasource.password}")
 	private String dbUser;
+	@Value("${database}")
+	private String dbType;
 	
 	
 	@GetMapping("/reset")
@@ -35,8 +37,8 @@ public class ResetHandler {
 	    dataSource.setPassword(dbUser);
 
 	    /** Do Schema and Data ReInitialization by SQL Scripts */
-	    Resource initSchema = new ClassPathResource("db/schema.sql");
-	    Resource initData = new ClassPathResource("db/data.sql");
+	    Resource initSchema = new ClassPathResource("db/"+dbType+"/schema.sql");
+	    Resource initData = new ClassPathResource("db/"+dbType+"/data.sql");
 	    DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initSchema, initData);
 	    DatabasePopulatorUtils.execute(databasePopulator, dataSource);
 
