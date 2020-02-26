@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.programozzteis.cardealer.cardealer.car.Car;
 import com.programozzteis.cardealer.cardealer.car.CarRepository;
+import com.programozzteis.cardealer.cardealer.logger.CarDealerLogger;
 
 @Controller
 @RequestMapping("/salesman")
@@ -61,12 +62,14 @@ public class SalesmanController {
 			{
 				/** Multiple salesman use-case is not implemented */
 				searchResult = "More Salesman found. Please use more precise name...";
+				CarDealerLogger.getLogger().error("Multiple Salesman found by Searching use-case is not implemented");
 			}
 			
 		}
 		else {
 			/** Empty Name use-case is not implemented */
 			searchResult = "Please add a Name for searching...";
+			CarDealerLogger.getLogger().error("Search with Empty Name use-case is not implemented");
 		}
 		
 		
@@ -94,7 +97,9 @@ public class SalesmanController {
 		else
 		{
 			/** Salesman not registered --> ERROR */
-			throw new RuntimeException("Requested Salesman is unknown");
+			RuntimeException rEx = new RuntimeException("Requested Salesman by URL ID is unknown");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		
@@ -132,7 +137,9 @@ public class SalesmanController {
 		else
 		{
 			/** Salesman not registered --> ERROR */
-			throw new RuntimeException("Requested Salesman is unknown");
+			RuntimeException rEx = new RuntimeException("Requested Salesman by URL ID is unknown");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		/** Upload model for Salesman Page */

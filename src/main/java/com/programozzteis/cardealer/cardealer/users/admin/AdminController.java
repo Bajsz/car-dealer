@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.programozzteis.cardealer.cardealer.car.Car;
 import com.programozzteis.cardealer.cardealer.car.CarRepository;
+import com.programozzteis.cardealer.cardealer.logger.CarDealerLogger;
 import com.programozzteis.cardealer.cardealer.users.customer.Customer;
 import com.programozzteis.cardealer.cardealer.users.customer.CustomerRepository;
 import com.programozzteis.cardealer.cardealer.users.salesman.Salesman;
@@ -74,7 +75,9 @@ public class AdminController {
 		else
 		{
 			/** Customer or Admin not registered --> ERROR */
-			throw new RuntimeException("Requested Customer or Admin is unknown");
+			RuntimeException rEx = new RuntimeException("Requested Customer or Admin by URL ID is unknown");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		/** Go Back to Admin Panel */
@@ -100,7 +103,9 @@ public class AdminController {
 		else
 		{
 			/** Customer or Admin not registered --> ERROR */
-			throw new RuntimeException("Requested Car or Admin is unknown");
+			RuntimeException rEx = new RuntimeException("Requested Car or Admin by URL ID is unknown");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		/** Go Back to Admin Panel */
@@ -132,7 +137,9 @@ public class AdminController {
 		else
 		{
 			/** Customer or Admin not registered --> ERROR */
-			throw new RuntimeException("Requested Car or Admin is unknown");
+			RuntimeException rEx = new RuntimeException("Requested Car or Admin by URL ID is unknown");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		/** Go Back to Admin Panel */

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.programozzteis.cardealer.cardealer.car.Car;
 import com.programozzteis.cardealer.cardealer.car.CarRepository;
+import com.programozzteis.cardealer.cardealer.logger.CarDealerLogger;
 
 @Controller
 public class CustomerController {
@@ -41,7 +42,9 @@ public class CustomerController {
 		else
 		{
 			/** Customer not registered --> ERROR */
-			throw new RuntimeException("Requested Customer is unknown");
+			RuntimeException rEx = new RuntimeException("Requested Customer by URL ID is unknown");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		
@@ -111,7 +114,9 @@ public class CustomerController {
 		else
 		{
 			/** Customer not registered --> ERROR */
-			throw new RuntimeException("Requested Customer is unknown");
+			RuntimeException rEx = new RuntimeException("Requested Customer by URL ID is unknown");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		return "customers/updateCustomerForm";
