@@ -100,7 +100,7 @@ public class CustomerController {
 	
 	
 	@GetMapping("/customer/{custId}/edit")
-	public String initCreationForm(@PathVariable(name = "custId") int custId, Map<String, Object> model) 
+	public String initEditForm(@PathVariable(name = "custId") int custId, Map<String, Object> model) 
 	{
 		if(this.customerRepo.existsById(custId))
 		{
@@ -118,7 +118,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/customer/{custId}/edit")
-	public String initCreationForm(
+	public String initEditForm(
 			@Valid Customer cust,
 			@PathVariable(name = "custId") int custId,
 			Map<String, Object> model) 
