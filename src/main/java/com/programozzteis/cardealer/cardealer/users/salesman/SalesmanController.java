@@ -38,7 +38,7 @@ public class SalesmanController {
 	}
 	
 	@GetMapping("")
-	public String processFindForm(Salesman salesman, BindingResult result, Map<String, Object> model) 
+	public String processFindForm(Salesman salesman, Map<String, Object> model) 
 	{
 		String destinationURL = "salesman/findSalesman";
 		String searchResult = "";
