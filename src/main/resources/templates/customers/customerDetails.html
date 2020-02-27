@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+  th:replace="~{fragments/layout :: layout (~{::body},'')}">
 
   <body>
   
@@ -19,7 +19,8 @@
         <td th:text="*{currentMoney}" /></td>
       </tr>
     </table>
-  	<div th:text="${purchasing}"></div>
+  	<b><div style="font-size: 20px; color: green;" th:text="${goodNews}"></b></div>
+  	<b><div style="font-size: 20px; color: red;" th:text="${badNews}"></b></div>
   	<br />
     <a th:href="@{/customer/{id}/edit(id=${customer.id})}" class="btn btn-default">Edit
       Customer</a>
