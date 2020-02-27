@@ -44,7 +44,7 @@ public class AdminController {
 		Iterable<Salesman> salesmans = this.salesmanRepo.findAll();
 		model.put("salesmans", salesmans);
 		
-		/** CUSTOMER */
+		/** CUSTOMERS */
 		Iterable<Customer> customers = this.customerRepo.findAll();
 		model.put("customers", customers);
 		
