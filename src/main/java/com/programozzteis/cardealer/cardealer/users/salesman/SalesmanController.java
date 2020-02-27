@@ -86,12 +86,16 @@ public class SalesmanController {
 			/** Customer exists with ID */
 			Salesman sman = this.salesmanRepo.findById(salesmanId);
 			model.put("salesman", sman);
+					
+			List<Car> cars = sman.getCars();
 			
-			/** Show Salesman's Adds only */
-			List<Car> cars = this.carRepo.findAll();
-			cars = cars.stream()
-					.filter(car -> car.getSalesman().getId() == salesmanId)
-					.collect(Collectors.toList());		
+			
+			/** Other solution is to Get All Car from DB then Filter */
+//			List<Car> cars = this.carRepo.findAll();
+//			cars = cars.stream()
+//					.filter(car -> car.getSalesman().getId() == salesmanId)
+//					.collect(Collectors.toList());		
+			
 			model.put("cars", cars);
 		}
 		else
@@ -130,7 +134,7 @@ public class SalesmanController {
 		{
 			/** Put new Car to DB */
 			Salesman sman = this.salesmanRepo.findById(salesmanId);
-			car.setSalesman(sman);
+			sman.addCar(car);
 			
 			this.carRepo.save(car);
 		}
