@@ -37,15 +37,15 @@
                       <span>Home</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/salesman/find','owners','find owners','','Find Salesman')">
+                  <li th:replace="::menuItem ('/salesman/find','salesman','Find Salesman','','Find Salesman')">
                       <span>Find owners</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/advertisementList.html','vets','veterinarians','','Advertisements')">
+                  <li th:replace="::menuItem ('/advertisementList.html','ads','Show Advertisements','','Advertisements')">
                       <span>Veterinarians</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','','Error')">
+                  <li th:replace="::menuItem ('/oups','error','Trigger a RuntimeException to see how it is handled','','Error')">
                       <span>Error</span>
                   </li>
   
@@ -67,9 +67,9 @@
         <div class="container">
           <div class="row">
           	<div class="col-12 text-center">
-              <img src="../static/ProfilePic.jpg" th:src="@{/ProfilePic.jpg}"
+              <img style="padding-top: 60px;" src="../static/ProfilePic.jpg" th:src="@{/ProfilePic.jpg}"
                 alt="Implemented by Tamas Bajor"/></div>
-            <div class="col-12 text-center">Implemented by Tamas Bajor</div>
+            <div class="col-12 text-center" style="padding-top: 15px;"><em>Implemented by Tamas Bajor</em></div>
           </div>
         </div>
       </div>

@@ -5,13 +5,27 @@
   <body>
 
     <h1>Welcome at Car Dealer Application!</h1>
+    <div style="font-size: 15px;"><b>This is a Demo Car Dealer Shop Application based on Spring-Boot and In-Memory HSQL Database!</b></div>
+    <div style="font-size: 15px;"><em>(MySQL configuration is also available, please check it in the Source Code)</em></div>
+    <br />
+    <div style="font-size: 15px;"><b>Features:</b></div>
+    <ul>
+	    <li>You can Create an Advertisement as a Salesman or Buy a Car as a Customer</li>
+	    <li>You can be the Admin of the Application and delete any User or Advertisement</li>
+	    <li>If you accidentally delete everybody from the Database, then please hit the <b><em>Reset DB Menu Point</b></em>, which brings back to Default state</li>
+    </ul>
     <br />
     <br />
     <br />
     <h2>Available Users</h2>
     <br />
+    <div>
+    	<span style="font-size: 20px;"><b>ADMIN - </b></span>
+	    <span style="font-family: Console; color: purple; font-size: 19px;">
+	    	<em>Admin can delete any Salesman, Customer or Advertisement from the Application</em>
+	    </span>
+    </div>
     <br />
-    <h3>--- ADMINS ---</h3>
     <table class="table table-striped">
       <tr th:each="admin : ${admins}">
         <td valign="top">
@@ -33,7 +47,13 @@
     </table>
     <br />
     <br />
-    <h3>--- SALESMANS ---</h3>
+    <div>
+    	<span style="font-size: 20px;"><b>SALESMEN - </b></span>
+	    <span style="font-family: Console; color: purple; font-size: 19px;">
+	    	<em>You can add more Advertisement for the selected Salesman</em>
+	    </span>
+    </div>
+    <br />
     <table class="table table-striped">
       <tr th:each="salesman : ${salesmans}">
         <td valign="top">
@@ -57,7 +77,13 @@
     </table>
     <br />
     <br />
-    <h3>--- CUSTOMERS ---</h3>
+    <div>
+    	<span style="font-size: 20px;"><b>CUSTOMERS - </b></span>
+	    <span style="font-family: Console; color: purple; font-size: 19px;">
+	    	<em>You can edit the Customer or check the available Advertisements and buy a Car from the Customer's money</em>
+	    </span>
+    </div>
+    <br />
     <table class="table table-striped">
       <tr th:each="customer : ${customers}">
         <td valign="top">
