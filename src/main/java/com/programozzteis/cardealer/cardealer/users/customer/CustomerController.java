@@ -77,12 +77,12 @@ public class CustomerController {
 				this.carRepo.delete(car);
 				
 				/** Feedback about the success purchasing */
-				model.put("purchasing", "Congratulation for your new Car!");
+				model.put("goodNews", "Congratulation for your new " + car.getType() + " Car!");
 			}
 			else
 			{
 				/** Feedback about not enough money */
-				model.put("purchasing", "Unfortunately you have no enough money for this Car...");
+				model.put("badNews", "Unfortunately you have no enough money for this Car...");
 			}
 			model.put("customer", cust);
 			
@@ -94,7 +94,9 @@ public class CustomerController {
 		else
 		{
 			/** Car not registered --> ERROR */
-			throw new RuntimeException("Requested Car is unknown and not available");
+			RuntimeException rEx = new RuntimeException("Requested Car is unknown and not available");
+			CarDealerLogger.getLogger().error(rEx);
+			throw rEx;
 		}
 		
 		return "customers/customerDetails";
