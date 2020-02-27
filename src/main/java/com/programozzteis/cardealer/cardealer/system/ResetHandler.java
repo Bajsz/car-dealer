@@ -38,7 +38,7 @@ public class ResetHandler {
 
 	    /** Do Schema and Data ReInitialization by SQL Scripts */
 	    Resource initSchema = new ClassPathResource("db/"+dbType+"/schema.sql");
-	    Resource initData = new ClassPathResource("db/"+dbType+"/data.sql");
+	    Resource initData = new ClassPathResource("db/data.sql");
 	    DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initSchema, initData);
 	    DatabasePopulatorUtils.execute(databasePopulator, dataSource);
 
