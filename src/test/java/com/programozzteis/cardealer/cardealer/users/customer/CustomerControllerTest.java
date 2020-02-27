@@ -44,6 +44,8 @@ public class CustomerControllerTest {
 	@MockBean
 	private CarRepository carRepo;
 	
+	private Car testCar;
+	
 	@BeforeEach
 	/**
 	 * Create a Test Customer
@@ -57,7 +59,7 @@ public class CustomerControllerTest {
 		testCustomer.setCurrentMoney(TEST_CUSTOMER_MONEY);
 		given(this.customerRepo.findById(TEST_CUSTOMER_ID)).willReturn(testCustomer);
 		
-		Car testCar = new Car();
+		testCar = new Car();
 		testCar.setId(TEST_CAR_ID);
 		testCar.setConsumption("9");
 		testCar.setPower("110");
@@ -138,8 +140,8 @@ public class CustomerControllerTest {
 			.andExpect(model().attributeExists("customer"))
 			.andExpect(model().attribute("customer", hasProperty("currentMoney", is(TEST_CUSTOMER_MONEY-TEST_CAR_PRICE))))
 			.andExpect(model().attributeExists("cars"))
-			.andExpect(model().attributeExists("purchasing"))
-			.andExpect(model().attribute("purchasing", "Congratulation for your new Car!"))
+			.andExpect(model().attributeExists("goodNews"))
+			.andExpect(model().attribute("goodNews", "Congratulation for your new " + testCar.getType() + " Car!"))
 			.andExpect(view().name("customers/customerDetails"));
 	}
 	
