@@ -91,6 +91,11 @@ public class Car extends BaseEntity {
 		this.salesman = salesman;
 	}
 
+	/**
+	 * It is necessary to avoid to public the CarType ENUM
+	 * Population is always possible only via Car Object
+	 * @return
+	 */
 	public Collection<CarType> populateCarTypes() {
 		return Arrays.asList(CarType.values());
 	}
