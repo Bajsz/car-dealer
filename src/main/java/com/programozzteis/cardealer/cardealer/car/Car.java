@@ -94,9 +94,10 @@ public class Car extends BaseEntity {
 	/**
 	 * It is necessary to avoid to public the CarType ENUM
 	 * Population is always possible only via Car Object
+	 * @return 
 	 * @return
 	 */
-	public Collection<CarType> populateCarTypes() {
-		return Arrays.asList(CarType.values());
+	public static CarType[] getCarTypes() {
+		return CarType.values();
 	}
 }

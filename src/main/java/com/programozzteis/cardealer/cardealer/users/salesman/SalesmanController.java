@@ -118,7 +118,7 @@ public class SalesmanController {
 		model.put("car", newCar);
 		
 		/** Provide the available Car Types via Car Obj */
-		model.put("car_types", newCar.populateCarTypes());
+		model.put("car_types", Car.getCarTypes());
 		
 		return "salesman/createNewAd";
 	}

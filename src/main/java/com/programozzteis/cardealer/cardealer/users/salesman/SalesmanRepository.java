@@ -1,6 +1,7 @@
 package com.programozzteis.cardealer.cardealer.users.salesman;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -40,7 +41,7 @@ public interface SalesmanRepository extends Repository<Salesman, Integer> {
 	 *
 	 * @return all entities
 	 */
-	Iterable<Salesman> findAll();	
+	List<Salesman> findAll();	
 	
 	/**
 	 * Retrieve {@link Salesman}s from the data store by name, returning all salesman
@@ -48,7 +49,7 @@ public interface SalesmanRepository extends Repository<Salesman, Integer> {
 	 * @param name Value to search for
 	 * @return a Collection of matching {@link Salesman}s (or an empty Collection if none found)
 	 */
-	@Query("SELECT DISTINCT salesman FROM Salesman salesman WHERE salesman.name LIKE ('%' || :name || '%')")
+	@Query("SELECT salesman FROM Salesman salesman WHERE salesman.name LIKE ('%' || :name || '%')")
 	@Transactional(readOnly = true)
 	Collection<Salesman> findByName(@Param("name") String name);
 	

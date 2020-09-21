@@ -18,26 +18,15 @@ import com.programozzteis.cardealer.cardealer.model.NamedEntity;
 @Table(name = "salesmans")
 public class Salesman extends NamedEntity {
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "salesman")
-	private Set<Car> cars;
-	
-	protected Set<Car> getCarsInternal() {
-		if (this.cars == null) {
-			this.cars = new HashSet<>();
-		}
-		return this.cars;
-	}
-
-	protected void setCarsInternal(Set<Car> cars) {
-		this.cars = cars;
-	}
+	@OneToMany(mappedBy = "salesman")
+	private List<Car> cars;
 
 	public List<Car> getCars() {
-		return Collections.unmodifiableList(new ArrayList<>(getCarsInternal()));
+		return cars;
 	}
 
 	public void addCar(Car car) {
-		getCarsInternal().add(car);
+		this.cars.add(car);
 		car.setSalesman(this);
 	}
 }
